@@ -34,7 +34,7 @@ model User {
 
   jobs         Job[]       @relation("UserJobs")
   bookmarks    Bookmark[]
-  applications Applicant[] // ✅ Added relation to Applicant
+  applications Applicant[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -51,7 +51,7 @@ model Job {
   postedBy     User        @relation("UserJobs", fields: [postedById], references: [id])
   postedById   String
   applicants   Applicant[]
-  bookmarkedBy Bookmark[] // ✅ Added relation to Bookmark
+  bookmarkedBy Bookmark[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
